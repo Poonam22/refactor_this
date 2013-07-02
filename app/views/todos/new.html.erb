@@ -1,0 +1,9 @@
+<%= form_for Todo.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.label :list_name %>
+  <%= f.text_field :list_name %>
+  <%= f.submit %>
+<% end %>
