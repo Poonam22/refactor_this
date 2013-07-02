@@ -18,9 +18,9 @@ class TodosController < ApplicationController
     params[:todo][:list_name] = params[:todo][:list_name].parameterize
     @todo = Todo.new(params[:todo])
     if @todo.save
-      redirect_to root_url
+      redirect_to root_url, notice: "Todo saved!"
     else
-      render :new
+      render :new, alert: "Todo not saved!"
     end
   end
 
@@ -33,7 +33,7 @@ class TodosController < ApplicationController
     if @todo.update_attributes params[:todo]
       redirect_to @todo
     else
-      render :edit
+      render :edit, alert: "Todo not saved!"
     end
   end
 

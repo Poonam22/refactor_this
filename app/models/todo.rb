@@ -1,32 +1,12 @@
 class Todo < ActiveRecord::Base
   attr_accessible :title, :body, :list_name, :todo_count, :status
 
-  def incomplete?
-    self.status == 0
-  end
+  STATUSES=["incomplete", "complete", "in_progress", "moved", "deleted", "postponed", "important"]
 
-  def complete?
-    self.status == 1
-  end
-
-  def in_progress?
-    self.status == 2
-  end
-
-  def moved?
-    self.status == 3
-  end
-
-  def deleted?
-    self.status == 4
-  end
-
-  def postponed?
-    self.status == 5
-  end
-
-  def important?
-    self.status == 6
+  STATUSES.each_with_index do |status, index| 
+    define_method "#{status}?" do
+      self.status == index
+    end
   end
 
   def incomplete!
