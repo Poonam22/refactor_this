@@ -1,7 +1,9 @@
 == ask yourself:
 
 - are your views handling more than they should?
+this is test
 - are you sending too many queries to db?
+this is 2nd test
 - are you DRY?
 - are your controller actions doing too much?
 - are your actions/methods doing unnecessary work?
